@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tasks</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="w3.css" />
+  <link href="theme.css" rel="stylesheet" type="text/css" media="screen">
+  <script src="jscripts.js" ></script>
+  <style>
+    /* Full-width input fields */
+
+
+      button {
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    hr {
+      border: 1px solid #f1f1f1;
+      margin-bottom: 25px;
+    }
+
+    .container {
+      padding: 16px;
+    }
+
+    span.psw {
+      float: right;
+      padding-top: 16px;
+    }
+
+    table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+  </style>
+</head>
+<body>
+  <script src="..\scripts\jquery.js" type="text/javascript"></script>
+  <h2 class="w3-theme-dark" style="padding:10px;margin:0px;" id="result">Workflow</h2>
+
+  <div id="sidenav" class="w3-sidebar w3-theme w3-bar-block" style="width:15%;position: fixed;overflow: hidden;"> 
+    <button type="button" class=" w3-btn w3-bar-item w3-theme w3-block">Route Work</button>
+    <button type="button" class=" w3-btn w3-bar-item w3-theme w3-block">Complete Workflow</button>
+    <button type="button" class=" w3-btn w3-bar-item w3-theme w3-block">Flush Workflow</button>    
+  </div>
+  <div style="margin-left:15%">
+  <label for="canvasFlow"><b>Preview Workflow</b></label>
+  <canvas id="canvasFlow" height="300" style="cursor: default; border: 1px solid black; height:300px; width:100%;">
+  *** THIS BROWSER DOES NOT SUPPORT THE CANVAS ELEMENT ***
+  </canvas>
+
+  <div style="width:100%">
+
+      <div id="table1" style=" width:40%;float:left;height:100%">
+        <table style="width: 100%">
+          <caption>Available Users</caption>
+          <tr style="background-color:gray">
+            <th>Id</th>
+            <th>Name</th>
+          </tr >
+        </table>
+      </div>
+
+      <div style="display:inline-block;width:auto;width:15%;margin-left:25px">
+          <button type="button"  class=" w3-btn  w3-theme ">Add >></button>
+          <button type="button"  class=" w3-btn  w3-theme ">X Remove</button>
+      </div>     
+
+      <div style=" width:40%;float: right;">
+        <table id="table2" style="width:100%;table-layout:fixed">
+          <caption>Users in Selected Stage</caption>
+          <tr style="background-color:gray">
+            <th>Id</th>
+            <th>Name</th>
+          </tr >
+        </table>
+      </div>
+   </div>
+
+
+<div id="msg" style="float:left;margin-left: 15%";>
+</div>
+</body>
+</html>

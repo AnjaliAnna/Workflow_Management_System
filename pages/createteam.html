@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Workflow Team Creation</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="w3.css" />
+    <link href="theme.css" rel="stylesheet" type="text/css" media="screen">
+    <script src="jscripts.js" ></script>
+    <style>
+      /* Full-width input fields */
+      input[type=text], input[type=password] {
+              width: 100%;
+              padding: 20px ;
+              display: inline-block;
+              box-sizing: border-box;
+              }
+
+              button {
+              padding: 14px 20px;
+              margin: 8px 0;
+              border: none;
+              cursor: pointer;
+              width: 100%;
+              }
+
+
+      hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+      }
+
+      .container {
+              padding: 16px;
+              }
+
+              span.psw {
+              float: right;
+              padding-top: 16px;
+              }
+
+      /* Float cancel and signup buttons and add an equal width */
+      .cancelbtn, .signupbtn {
+        float: left;
+        width: 50%;
+          padding: 10px 18px;
+      }
+
+      /* Clear floats */
+      .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+      /* Change styles for cancel button and signup button on extra small screens */
+      @media screen and (max-width: 300px) {
+        .cancelbtn, .signupbtn {
+          width: 100%;
+        }
+      }
+
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <script src="..\scripts\jquery.js" type="text/javascript"></script>
+    <h2 class="w3-theme-dark" style="padding:10px;margin:0px" id="result">Create Team Form</h2>
+    
+    <div class="w3-sidebar w3-theme w3-bar-block" style="width:15%;position: fixed;overflow: hidden;height:100%;z-index: 1;top:20"> 
+      <button type="submit" class="w3-btn w3-bar-item w3-block w3-theme">Reset</button>
+      <button type="button" class=" w3-btn w3-bar-item w3-theme w3-block">Save Team</button>
+      <button type="button" class=" w3-btn w3-bar-item w3-theme w3-block">Update Team Name</button>  
+      <button type="button" class=" w3-btn w3-bar-item w3-theme w3-block">Remove Team Name</button>
+      <button type="button" class=" w3-btn w3-bar-item w3-theme w3-block">Depricate/Recover</button>  
+    </div>
+
+    <form name="createteam_form" class="w3-theme-light w3-container" style="margin-left:15%">
+      
+        <div style="float:left;width:50%;">
+          <label for="lst_workflow"><b>Choose Workflow</b></label>
+          <select id="lst_workflow" class="w3-select" style="height:41px" placeholder="Choose Member Name" required>
+          </select>
+        </div>
+
+        <div style="float:right;width:50%">
+          <label for="txt_teamName"><b>Team Name</b></label>
+          <input type="text" id="txt_projName" class="w3-input" style="height:4px" placeholder="Enter Team Name" required>
+        </div>   
+
+    
+      <label for="canvasFlow"><b>Preview Workflow</b></label>
+      <canvas id="canvasFlow" height="300" style="cursor: default; border: 1px solid black; height:300px; width:100%;">
+      *** THIS BROWSER DOES NOT SUPPORT THE CANVAS ELEMENT ***
+      </canvas>
+      
+    <!--  <label for="lst_member"><b>Choose Member Name</b></label>
+      <select id="lst_member" class="w3-select" placeholder="Choose Member Name" required>
+          <option>a</option>
+          <option>b</option>
+          </select>
+      
+      <div class="clearfix">
+        <button type="button" class="cancelbtn w3-btn w3-theme w3-block">Cancel</button>
+        <button type="submit" class="signupbtn w3-btn w3-theme w3-block">Create</button>
+      </div>
+    </div>-->
+    <!--table displayed using php code-->
+
+      <div style="float:left;width:45%">
+        <!--Available teams table-->
+        <table style="table-layout:fixed;width:100%">
+          <caption>Available Teams</caption>
+          <tr style="background-color:gray">
+            <th>Id</th>
+            <th>Name</th>
+          </tr >
+        </table>
+      </div>
+
+      <div style="float:right;width:45%">
+        <!--Stages selected in workflow table-->
+        <table style="table-layout:fixed;width:100%">
+          <caption>Stages selected in workflow</caption>
+          <tr style="background-color:gray">
+            <th>Id</th>
+            <th>Name</th>
+          </tr >
+        </table>
+      </div>
+<!--How to make all these three divisions together horizontally-->
+    <div style="float:left;width:40%">
+      <!--Available Users-->
+      <table style="table-layout:fixed;width:100%">
+        <caption>Available Users</caption>
+        <tr style="background-color:gray">
+          <th>Id</th>
+          <th>Name</th>
+        </tr >
+      </table>
+    </div>
+
+    <div style="display:inline-block;width:15%;margin-left:25px" >
+    <button type="button" class=" w3-btn w3-theme w3-block">Add >></button>
+    <button type="button" class=" w3-btn w3-theme w3-block">X Remove</button>
+    </div>
+
+    <div style="float:right;width:40%">
+      <!--Users in selected stage-->
+      <table style="table-layout:fixed;width:100%">
+        <caption>Users in selected stage</caption>
+        <tr style="background-color:gray">
+          <th>Id</th>
+          <th>Name</th>
+        </tr >
+      </table>
+    </div>
+
+  </form>
+
+  <div id="msg"></div>
+  </body>
+</html>

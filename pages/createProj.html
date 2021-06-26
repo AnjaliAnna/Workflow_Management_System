@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Project Creation</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="w3.css" />
+  <link href="theme.css" rel="stylesheet" type="text/css" media="screen">
+  <script src="jscripts.js" ></script>
+  <style>
+    /* Full-width input fields */
+    input[type=text], input[type=password] {
+      width: 100%;
+      padding: 20px ;
+      display: inline-block;
+      box-sizing: border-box;
+      }
+
+      button {
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    hr {
+      border: 1px solid #f1f1f1;
+      margin-bottom: 25px;
+    }
+
+    .container {
+      padding: 16px;
+    }
+
+    span.psw {
+      float: right;
+      padding-top: 16px;
+    }
+
+    table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+  </style>
+</head>
+<body>
+  <script src="..\scripts\jquery.js" type="text/javascript"></script>
+  <h2 class="w3-theme-dark" style="padding:10px;margin:0px;" id="result">Create Project Form</h2>
+
+  <div class="w3-sidebar w3-theme w3-bar-block" style="width:15%;position: fixed;overflow: hidden;"> 
+    <button type="submit" class="w3-btn w3-bar-item w3-block w3-theme">Add Project</button>
+    <button type="button" class=" w3-btn w3-bar-item w3-theme w3-block">Update Project</button>
+    <button type="button" class=" w3-btn w3-bar-item w3-theme w3-block">Delete Project</button>  
+  </div>
+
+  <form name="createProj_form" class="w3-theme-light w3-container" style="margin-left:15%">
+
+    <label for="txt_projName"><b>Project Name</b></label>
+    <input type="text" id="txt_projName" class="w3-input" placeholder="Project Name" required>
+
+    <label for="txt_projDetails"><b>Project Details</b></label>
+    <input type="text" id="txt_projDetails" class="w3-input" placeholder="Project Details" required>
+
+    <div style="width:30%;float:left">
+    
+      <label for="txt_projOwner"><b>Project Owner</b></label>
+      <input type="text" id="txt_projOwner" class="w3-input" placeholder="Owner Name" required>
+
+      <label for="txt_duedate"><b>Project Due Date</b></label>
+      <input type="date" id="txt_duedate" class="w3-input" placeholder="Due Date" required>
+
+      <label for="txt_actualFinishdate"><b>Project Actual Finish Date</b></label>
+      <input type="date" id="txt_actualFinishdate" class="w3-input" placeholder="Finish Date" required>
+    </div>
+
+    <div style="float:left;width: 70%">
+
+      <div id="table1" style="float:left;height: 100%;width: 40%">
+        <table style="table-layout:fixed;width:100%">
+          <caption>Available Users</caption>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+          </tr >
+        </table>
+      </div>
+
+      <div style="display:inline-block;width: 15%;margin-left:20px">
+          <button type="button"  class=" w3-btn  w3-theme ">Add >></button>
+          <button type="button"  class=" w3-btn  w3-theme ">X Remove</button>
+        </div>     
+
+      <div style="height: 100%;width:40%;float: right;">
+        <table id="table2" style="table-layout:fixed;width:100%">
+          <caption>Users is Selected Stage</caption>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+          </tr >
+        </table>
+      </div>
+   </div>
+   
+<div id="msg" style="float:left;margin-left: 15%";></div>
+<div >
+  <table id="table3" style="table-layout:fixed;width:100%">
+    <tr style="background-color:gray">
+      <th>ID</th>
+      <th>NAME</th>
+      <th>DETAILS</th>
+      <th>PLANNED FINISH</th>
+      <th>ACTUAL FINISH</th>
+      <th>OWNER</th>
+    </tr>
+  </table>
+</div>
+</form>
+</body>
+</html>

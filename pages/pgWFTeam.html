@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Workflow</title>
+    <script type="text/javascript" src="..\scripts\addflow-min.js"></script>
+    <script type="text/javascript" src="..\scripts\jquery.min.js"></script>
+    <script type="text/javascript" src="..\scripts\wfTeamFunc.js"></script>
+    <script type="text/javascript">
+        function OnInit()
+        {
+            try {
+                initPage();
+            }
+            catch (err) {
+                alert(err.innerHTML);
+            }
+
+        }
+
+        function Template()
+        {
+            try {
+            }
+            catch (err) {
+                alert(err.innerHTML);
+            }
+
+        }
+    </script>
+</head >
+    <body onload="onInit()">
+        <div id="divWfList" style="border-style: solid; width: 20%; height:250px; overflow: auto; float: left">
+            <table id="tblWfList" rules="all" style="border:1px solid red">
+                <col width="5">
+                <col width="200">
+                <tr>
+                    <th>ID</td>
+                    <th>Name</td>
+                </tr>
+            </table>
+            <br/>
+            <input type="text" id="wfID" placeholder="Workflow ID"/>
+            <button id="btnShowWF" onclick="onClick_btnShowWF()" style="margin:2px; height:20px;float: left">Show</button>
+        </div>
+        <div id="divFlow" style="border-style: solid; height:500px;width:58%; overflow: auto; float:right">
+            <canvas id="canvasFlow" height="490" style="cursor: default;">*** THIS BROWSER DOES NOT SUPPORT THE CANVAS ELEMENT ***</canvas>
+        </div>
+        <div id="divWfTeamList" style="border-style: solid; height:250px;width:20%; overflow: auto; float: left">
+            <table id="tblWfTeamList" rules="all" style="border:1px solid red">
+                <col width="5">
+                <col width="200">
+                <tr>
+                    <th>ID</td>
+                    <th>Name</td>
+                </tr>
+            </table>
+            <br/>
+            <input type="text" id="wfTeamID" placeholder="Team ID" style="float:left"/>
+            <button id="btnShowWFTeam" onclick="onClick_btnShowWFTeam()" style="margin:2px; height:20px;float: left">Show</button>
+            <input type="text" id="wfTeamName" placeholder="Team Name" style="float:left"/>
+            <button id="btnCreateWFTeam" onclick="onClick_btnCreateWFTeam()" style="margin:2px; height:20px;float: left">Create</button><br/>
+            <button id="btnDelWFTeam" onclick="onClick_btnDelWFTeam()" style="margin:2px; height:20px;float: left">Delete</button>
+        </div>
+        <div id="divWfTeamUsers" style="border-style: solid; height:250px;width:20%; overflow: auto; float: left">
+            <table id="tblWfTeamUsersList" rules="all" style="border:1px solid red">
+                <col width="5">
+                <col width="200">
+                <tr>
+                    <th>ID</td>
+                    <th>Name</td>
+                </tr>
+            </table>
+            <br/>
+            <input type="text" id="wfTeamUserID" placeholder="User ID" style="float:left"/>
+            <button id="btnAddUser" onclick="onClick_btnAddUser()" style="margin:2px; height:20px;float: left">Add</button>
+            <button id="btnDelUser" onclick="onClick_btnDelUser()" style="margin:2px; height:20px;float: left">Delete</button><br/>
+        </div>
+
+
+    </body>
+</html >

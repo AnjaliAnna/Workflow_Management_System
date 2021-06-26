@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Organisation Approve</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheet.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="w3.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="theme.css" />
+    <script type="text/javascript" src="..\Scripts\jquery.min.js"></script>
+        <script type="text/javascript" src="..\Scripts\orgFuncs.js"></script>
+        <script type="text/javascript">
+            function onLoad_Test()
+            {
+                try {
+                    getOrganisations(0);
+                }
+                catch (err) {
+                    alert(err.innerHTML);
+                }
+            }
+        </script>
+    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+}
+    </style>
+</head>
+<body onload="onLoad_Test()">
+<div id="mainhead1" class="w3-theme-dark">
+<h2>Approve Organization</h2>
+<div class="w3-sidebar w3-theme w3-bar-block" style="width:15%;position: fixed;overflow: hidden;"> 
+        <button type="button" id="btnOrgReject" type="button" value="Reject" onclick="onClick_btnOrgReject();"  class=" w3-btn w3-bar-item w3-theme w3-block">Approve</button>
+        <button type="button" id="btnOrgApprove" type="button" value="Approve" onclick="onClick_btnOrgApprove();" class=" w3-btn w3-bar-item w3-theme w3-block">Reject</button>  
+      </div>
+</div>
+<div style="margin-left:16%">
+        <form style="margin-left:2px" name="approveOrg_frm" class="w3-theme-light w3-container"></form>
+
+        <div id="divOrgList" style="height:auto;width:60%; overflow: auto;margin-top:10px">
+                <table id="tblOrgList" rules="all" style="border:1px solid black">
+                    <col width="50">
+                    <col width="100">
+                    <col width="100">
+                    <col width="300">
+                    <col width="50">
+                    <tr style="background-color:gray">
+                        <th>ID</td>
+                        <th>Name</td>
+                        <th>Details</td>
+                        <th>Requested By</td>
+                        <th>Status</td>
+                    </tr>
+                </table>
+        </div>
+        </form>
+    </div>
+    </body>
+</html>

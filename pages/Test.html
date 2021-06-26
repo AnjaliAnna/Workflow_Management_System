@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>iFlow</title>
+        <script type="text/javascript" src="..\Scripts\jquery.min.js"></script>
+        <script type="text/javascript" src="..\Scripts\orgFuncs.js"></script>
+        <script type="text/javascript">
+            function onLoad_Test()
+            {
+                try {
+                    getOrganisations(0);
+                }
+                catch (err) {
+                    alert(err.innerHTML);
+                }
+    
+            }
+        </script>
+    </head>
+    <body onload="onLoad_Test()">
+        <div style="border:2px solid blue; padding: 3px">
+            <input type="text" id="ln" placeholder="Login Name"/><br/>
+            <input type="text" id="pwd" placeholder="Password"/><br/>
+            <input type="button" value="Submit" onclick="Login();">
+            
+        </div>
+        <div style="border:2px solid blue; padding: 3px; height:155px">
+            <div id="divOrgList" style="border-style: solid; height:150px;width:60%; overflow: auto; float: left">
+                <table id="tblOrgList" rules="all" style="border:1px solid red">
+                    <col width="50">
+                    <col width="100">
+                    <col width="100">
+                    <col width="300">
+                    <col width="50">
+                    <tr>
+                        <th>ID</td>
+                        <th>Name</td>
+                        <th>Owner</td>
+                        <th>Details</td>
+                        <th>Status</td>
+                    </tr>
+                </table>
+            </div>
+            <input type="text" id="orgName" placeholder="Organisation Name"/><br/>
+            <input type="text" id="orgDetails" placeholder="Details"/><br/>
+            <input type="text" id="orgEmail" placeholder="Your mail id"/><br/>
+            <input type="button" value="Request" onclick="orgRequest();"><br/>
+            <input id="txtOrgID" width="10" type="text" id="ln" placeholder="Org.ID?"/><br/>
+            <input id="txtStatus" width="10" type="text" id="ln" placeholder="Status?"/><br/>
+            <input id="btnOrgApprove" type="button" value="Approve" onclick="onClick_btnOrgApprove();">
+
+        </div>
+
+        <br/>
+        <div id="result" style="border:2px solid blue; padding: 3px;font-size:200%; color:red" ></div>
+        <script type="text/javascript">
+            function Login()
+            {
+                var name = $('#ln').val();
+                var pass = $('#pwd').val();
+/*
+                $.ajax(
+                    {
+                        type: "POST",
+                        url:  '../api/Login.php',
+                        data: {"loginName":"s", "password": "x"},
+                        success: function(data) 
+                        {
+                            alert('call back');
+                        },
+                        error:   function(jqXHR, textStatus, errorThrown) 
+                        {
+                            alert("Error, status = " + textStatus + ", " + "error thrown: " + errorThrown);
+                        }
+                    });
+                    */
+                    $.post('../api/Login.php', {loginName:name,password:pass}, 
+                    function(data) 
+                    {
+                        if (data.status != 1)
+                        {
+                            if (data.count>0)
+                            {
+                                $('#result').html(data.data[0]);
+                            }
+                            else
+                            {
+                                $('#result').html('Unknown Error!');
+                            }
+                        }
+                        else
+                        {
+                            window.location.href = data.data[0];
+                        }
+                    });
+            }
+
+            function orgRequest()
+            {
+                var apiParam = {};
+                var apiParamData = {};
+                apiParamData.ORG_NAME = $('#orgName').val();
+                apiParamData.ORG_DETAILS = $('#orgDetails').val();
+                apiParamData.REQ_BY_EMAIL_ID = $('#orgEmail').val();
+                //apiParam.COMMAND = 'ADD';
+                //apiParam.PARAM = paramData;
+                //alert (JSON.stringify(apiParam));
+                $.post('../api/orgHandler.php', {apiCommand:'ADD',apiParam:JSON.stringify(apiParamData)}, 
+                function(data) 
+                {
+                    if (data.status != 1)
+                        {
+                            if (data.count>0)
+                            {
+                                $('#result').html(data.data[0]);
+                            }
+                            else
+                            {
+                                $('#result').html('Unknown Error!');
+                            }
+                        }
+                        else
+                        {
+                            $('#result').html(data.data[0]);
+                        }
+                });
+            }
+
+
+
+        </script>
+    </body>
+</html>

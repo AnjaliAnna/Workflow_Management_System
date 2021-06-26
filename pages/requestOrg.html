@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Organisation Request</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheet.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="w3.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="theme.css" />
+    <script type="text/javascript" src="..\Scripts\jquery.min.js"></script>
+    <script type="text/javascript" src="..\Scripts\orgFuncs.js"></script>
+        <script type="text/javascript">
+            function onLoad_Test()
+            {
+                try {
+                    getOrganisations(0);
+                }
+                catch (err) {
+                    alert(err.innerHTML);
+                }
+    
+            }
+            function onclick_orgRequest(){
+                try
+                {
+                    orgRequest();
+                }
+                catch (err) {
+                    alert(err.innerHTML);
+                }
+                
+            }
+        </script>
+    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body onload="onLoad_Test()">
+<div id="mainhead1" class="w3-theme-dark">
+<h2>Request Organization</h2>
+</div>
+        <form name="requestOrg_frm" class="w3-theme-light w3-container">
+
+        <label for="orgName"><b>Enter Organization Name</b></label>
+        <input type="text" id="orgName" placeholder="Organisation Name" class="w3-input"/><br/>
+
+        <label for="orgName"><b>Enter Organization Details</b></label>
+        <input type="text" id="orgDetails" placeholder="Details" class="w3-input"/><br/>
+
+        <label for="orgName"><b>Enter Email</b></label>
+        <input type="text" id="orgEmail" placeholder="Your mail id" class="w3-input"/><br/>
+
+        <input type="button" value="Request" onclick="onclick_orgRequest();"class="w3-btn w3-theme w3-round-medium w3-block w3-hover-theme"><br/>
+        
+            </form>
+            </div>
+</body>
+</html>

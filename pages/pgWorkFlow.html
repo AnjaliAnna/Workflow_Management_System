@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Create Workflow</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" media="screen" href="w3.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheet.css" />
+    <link href="theme.css" rel="stylesheet" type="text/css" media="screen">
+    <script type="text/javascript" src="..\scripts\addflow-min.js"></script>
+    <script type="text/javascript" src="..\scripts\jquery.min.js"></script>
+    <script type="text/javascript" src="..\scripts\workflowFunc.js"></script>
+    <script type="text/javascript">
+
+        function onChangewfList()
+        {
+            try {
+                getWorkflows(document.getElementById('wfList').value);
+            }
+            catch (err) {
+                alert(err.innerHTML);
+            }
+
+        }
+        function onClick_btnAddNode() {
+            try {
+
+                addNode(document.getElementById('itemText').value, document.getElementById('selNodeType').value);
+            }
+            catch (err) {
+                alert(err.innerHTML);
+            }
+            
+        }
+        function onClick_btnUpdateNode() {
+            try {
+                updateNode(document.getElementById('itemText').value);
+            }
+            catch (err) {
+                alert(err.innerHTML);
+            }
+        }
+        function onClick_btnRemoveNode() {
+            try {
+                removeSelection();
+            }
+            catch (err) {
+                alert(err.innerHTML);
+            }
+        }
+        function onClick_btnSaveWorkflow() {
+            try {
+                SaveWorkflow();
+            }
+            catch (err) {
+                alert(err.innerHTML);
+            }
+        }
+    </script>
+</head >
+    <body onload="initPage()">
+        <h2 class="w3-theme-dark" style="padding:10px;margin:0px;" >Create Workflow</h2>
+        <div id="divNavigation" class="topnav w3-theme-l1" style=" width: 20%; height:100%; float: left">
+            
+            <label for="itemText"><b>Enter Text:</b></label>
+            <input type="text" id="itemText" class="w3-text w3-block"/><br>
+
+            <label for="selNodeType"><b>Choose Type:</b></label>
+            <select id="selNodeType" class="w3-select"placeholder="Choose shape" required>
+                <option value='rectangle'>Rectangle</option>
+                <option value='polygon'>Polygon</option>
+            </select><br>
+
+            <button id="btnAddNode" onclick="onClick_btnAddNode()" class="w3-btn w3-block">Add</button>
+            <button id="btnUpdateNode" onclick="onClick_btnUpdateNode()" class="w3-btn w3-block w3-hover-theme">Update</button>
+            <button id="btnRemoveNode" onclick="onClick_btnRemoveNode()" class="w3-btn w3-block w3-hover-theme">Remove</button>
+            <button id="btnSaveWorkflow" onclick="onClick_btnSaveWorkflow()" class="w3-btn w3-block w3-hover-theme">Save</button>
+
+            <label for="wfName"><b>Enter Workflow Name:</b></label>
+            <input type="text" id="wfName" class="w3-text w3-block"/><hr>
+
+            <div id="divList" style=" height:200px;width:auto; overflow: auto; float: left">
+                    <label for="wfList"><b>Choose Workflow to view:</b></label>
+                    <select id="wfList" onchange="onChangewfList()" class="w3-select w3-block"></select>
+                </div>
+        </div>
+
+        <div id="divFlow" style="border-style: 1px solid black; height:100%; overflow: auto;">
+            <canvas id="canvasFlow" height="inherit" style="cursor: default;">*** THIS BROWSER DOES NOT SUPPORT THE CANVAS ELEMENT ***</canvas>
+        </div>
+        <!-- <div id="divUsers" style="border-style: solid; height:200px;width:15%; overflow: auto; float: left">
+           <table id="tblOrgList" rules="all" style="border:1px solid red">
+                <col width="5">
+                <col width="200">
+                <tr>
+                    <th>ID</td>
+                    <th>Name</td>
+                </tr>
+            </table>
+
+        </div>-->
+
+    </body>
+</html >
